@@ -4,38 +4,14 @@ location            = "Central India"
 virtual_network_name = "PrimeSquare-IAC-VNET"
 
 subnet_details = [
-  {
-    name           = "PrimeSquare-IAC-SUBNET-1"
-    address_prefix = "10.2.0.0/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-2"
-    address_prefix = "10.2.0.32/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-3"
-    address_prefix = "10.2.0.64/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-4"
-    address_prefix = "10.2.0.96/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-5"
-    address_prefix = "10.2.0.128/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-6"
-    address_prefix = "10.2.0.160/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-7"
-    address_prefix = "10.2.0.192/27"
-  },
-  {
-    name           = "PrimeSquare-IAC-SUBNET-8"
-    address_prefix = "10.2.0.224/27"
-  }
+  { name = "subnet1", address_prefix = "10.2.0.0/27" },
+  { name = "subnet2", address_prefix = "10.2.0.32/27" },
+  { name = "subnet3", address_prefix = "10.2.0.64/27" },
+  { name = "subnet4", address_prefix = "10.2.0.96/27" },
+  { name = "subnet5", address_prefix = "10.2.0.128/27" },
+  { name = "subnet6", address_prefix = "10.2.0.160/27" },
+  { name = "subnet7", address_prefix = "10.2.0.192/27" },
+  { name = "subnet8", address_prefix = "10.2.0.224/27" }
 ]
 
 availability_set_details = [
