@@ -12,4 +12,3 @@ output "availability_set_ids" {
   description = "The IDs of the availability sets"
   value       = azurerm_availability_set.avset[*].id
 }
-

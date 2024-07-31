@@ -1,12 +1,12 @@
 terraform {
   backend "azurerm" {
-    resource_group_name   = "demosatatergnew"
-    storage_account_name  = "demostatesa1234"
+    resource_group_name   = "PrimeSquare-IAC-Resource-Group"
+    storage_account_name  = "primesquareiacdemosa"
     container_name        = "terraform-state-cont"
     key                   = "terraform.tfstate"
     use_msi               = true
-    client_id             = "0a30e140-be26-4b86-a1cf-5ed6de57d5ea"
-    access_key            = "Cy/sgBF2wo48rv3YivP6b3OFwAeATZ7BhDj6RbWKmTdxt3Ys7KP/HhH8S1X8NAtoncZLFDWaBSnR+ASt4GDhGw=="
+    client_id             = "9cd0a1f5-d29f-4b48-bc12-4dfd9df70736"
+    access_key            = "eQ+vznhoalz+1KUgJZEDlNxcTnK2xXMPRz6cpqlTRiQWf69+31vUj1ZGGZOEFv1fFYhCiY6YcWss+ASt0Nzx9A=="
   }
 }
 
@@ -16,18 +16,6 @@ provider "azurerm" {
 
   subscription_id = var.subscription_id
 }
-
-#module "network_security_group" {
-#  source                = "./modules/PrimeSquare-network_security_group"
-#  vm_count              = length(var.vm_details)
-#  resource_group_name   = var.resource_group_name
-#  location              = var.location
-#  nsg_name              = var.nsg_name
-#  nic_name              = var.nic_name
-#  inbound_rules         = var.inbound_rules
-#  outbound_rules        = var.outbound_rules
-#  tags                  = var.tags
-#}
 
 resource "tls_private_key" "sshkey" {
   algorithm = "RSA"
@@ -50,9 +38,20 @@ resource "azurerm_storage_blob" "private_ssh_key" {
 module "subnet" {
   source               = "./modules/subnet"
   resource_group_name  = var.resource_group_name
-  virtual_network_name = var.virtual_network_name 
+  virtual_network_name = var.virtual_network_name
   subnet_count         = length(var.subnet_details)
   subnet_details       = var.subnet_details
+}
+
+module "network_security_group" {
+  source               = "./modules/network_security_group"
+  location             = var.location
+  resource_group_name  = var.resource_group_name
+  inbound_rules        = var.inbound_rules
+  outbound_rules       = var.outbound_rules
+  subnet_ids           = module.subnet.subnet_ids
+ #nsg_name             = var.nsg_name
+  tags                 = var.tags
 }
 
 module "availability_set" {
@@ -60,7 +59,7 @@ module "availability_set" {
   availability_set_details = var.availability_set_details
   resource_group_name  = var.resource_group_name
   location             = var.location
-}  
+}
 
 module "vm" {
   source                       = "./modules/PrimeSquare-azure-vm"

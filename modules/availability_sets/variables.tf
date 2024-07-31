@@ -16,4 +16,3 @@ variable "availability_set_details" {
     update_domain_count   = number
   }))
 }
-

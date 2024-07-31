@@ -6,8 +6,8 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = [var.subnet_details[count.index].address_prefix]
 }
 
+
 output "subnet_ids" {
   description = "The IDs of the subnets"
   value       = azurerm_subnet.subnet[*].id
 }
-

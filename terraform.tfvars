@@ -1,4 +1,4 @@
-subscription_id     = "8137c2f4-3363-4a3b-93f6-c6acd62fbd52"
+subscription_id     = "1f0d02b4-a809-4b3b-b868-b4b6f6713cf4"
 resource_group_name = "PrimeSquare-IAC-Resource-Group"
 location            = "Central India"
 virtual_network_name = "PrimeSquare-IAC-VNET"
@@ -15,32 +15,20 @@ subnet_details = [
 ]
 
 availability_set_details = [
-  { 
-    name = "webserver-avset",
-    fault_domain_count = 2,
-    update_domain_count = 5
-  },
-  { 
-    name = "appserver-avset",
-    fault_domain_count = 2,
-    update_domain_count = 5
-  },
-  {
-    name = "MSGserver-avset",
-    fault_domain_count = 2,
-    update_domain_count = 5
-  }
+  { name = "webserver-avset", fault_domain_count = 2, update_domain_count = 5 },
+  { name = "appserver-avset", fault_domain_count = 2, update_domain_count = 5 },
+  { name = "MSGserver-avset", fault_domain_count = 2, update_domain_count = 5 }
 ]
 
 nic_name            = "PrimeSquare-IAC-NIC"
 nsg_name            = "PrimeSquare-IAC-NSG"
-storage_account     = "demostatesa12"
+storage_account     = "primesquareiacdemosa"
 storage_container   = "terraform-private-key"
 
 vm_details = [
   {
     vm_name  = "PrimeSquare-IAC-VM"
-    vm_count = 8
+    vm_count = 7
     vm_size  = "Standard_DS1_v2"
     disk_type = "Standard_LRS"
     os_disk_size = 32

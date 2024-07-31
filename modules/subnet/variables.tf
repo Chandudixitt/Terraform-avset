@@ -20,4 +20,3 @@ variable "subnet_details" {
     address_prefix = string
   }))
 }
-

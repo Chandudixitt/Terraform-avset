@@ -118,4 +118,3 @@ variable "tags" {
   type        = map(any)
   description = "Tags for the resources"
 }
-
