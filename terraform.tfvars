@@ -1,4 +1,4 @@
-subscription_id     = "1f0d02b4-a809-4b3b-b868-b4b6f6713cf4"
+subscription_id     = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 resource_group_name = "PrimeSquare-IAC-Resource-Group"
 location            = "Central India"
 virtual_network_name = "PrimeSquare-IAC-VNET"
