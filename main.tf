@@ -5,8 +5,8 @@ terraform {
     container_name        = "terraform-state-cont"
     key                   = "terraform.tfstate"
     use_msi               = true
-    client_id             = "9cd0a1f5-d29f-4b48-bc12-4dfd9df70736"
-    access_key            = "eQ+vznhoalz+1KUgJZEDlNxcTnK2xXMPRz6cpqlTRiQWf69+31vUj1ZGGZOEFv1fFYhCiY6YcWss+ASt0Nzx9A=="
+    client_id             = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    access_key            = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   }
 }
 
